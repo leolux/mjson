@@ -19,6 +19,7 @@
 package mjson;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.URI;
@@ -251,7 +252,7 @@ import java.util.regex.Pattern;
  * @author Borislav Iordanov
  * @version 1.4
  */
-public class Json
+public class Json implements Serializable
 {
 	/**
 	 * <p>
@@ -1769,7 +1770,7 @@ public class Json
         return result;
     }
 
-	static class NullJson extends Json
+	static class NullJson extends Json implements Serializable
 	{
 		NullJson() {}
 		NullJson(Json e) {super(e);}
@@ -1789,7 +1790,7 @@ public class Json
 	
 	static NullJson topnull = new NullJson();
 
-	static class BooleanJson extends Json
+	static class BooleanJson extends Json implements Serializable
 	{
 		boolean val;
 		BooleanJson() {}
@@ -1811,7 +1812,7 @@ public class Json
 		}		
 	}
 
-	static class StringJson extends Json
+	static class StringJson extends Json implements Serializable
 	{
 		String val;
 
@@ -1852,7 +1853,7 @@ public class Json
 		}		
 	}
 
-	static class NumberJson extends Json
+	static class NumberJson extends Json implements Serializable
 	{
 		Number val;
 
@@ -1882,7 +1883,7 @@ public class Json
 		}				
 	}
 	
-	static class ArrayJson extends Json
+	static class ArrayJson extends Json implements Serializable
 	{
 		List<Json> L = new ArrayList<Json>();
 		
@@ -2097,7 +2098,7 @@ public class Json
 		}		
 	}
 	
-	static class ObjectJson extends Json
+	static class ObjectJson extends Json implements Serializable
 	{
 		Map<String, Json> object = new HashMap<String, Json>();
 		
